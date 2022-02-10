@@ -58,6 +58,24 @@ const users = [
         user: "camilanc",
         password: "nieto2020",
         balance: 500,
+    },
+    {
+        name: "Hilda Lorena",
+        user: "lorecoga",
+        password: "maiestra16",
+        balance: 0,
+    },
+    {
+        name: "Admin",
+        user: "admin",
+        password: "admin1",
+        balance: 500
+    },
+    {
+        name: "Admin no. 2",
+        user: "admin2",
+        password: "admin2",
+        balance: 500
     }
 ];
 
