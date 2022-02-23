@@ -16,7 +16,6 @@
         </div>
     </nav>
     <div class="alert" role="alert" id="loginAlert">
-        A simple success alert—check it out!
     </div>
     <!--Login Section-->
     <div class="container mt-5" id="loginSection">
@@ -39,7 +38,40 @@
                             <input type="checkbox" class="form-check-input" id="remberMe">
                             <label class="form-check-label" for="rememberMe">Remember Me</label>
                         </div>
-                        <button type="button" class="btn btn-primary" id="login">Log in</button>
+                        <button type="button" class="btn btn-success" id="login">Log in</button>
+                        <button type="button" class="btn btn-primary" id="registerShow">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Register Section-->
+    <div class="container mt-5" id="registerSection">
+        <div class="card col-10 mx-auto">
+            <div class="card-header">
+                <h5>Welcome to Banico - Register</h5>
+            </div>
+            <div class="row p-5">
+                <div class="col-8 col-md-8 col-lg-5 mx-auto">
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">User</label>
+                            <input type="text" class="form-control" id="user_reg" aria-describedby="user" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password_reg" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password_confirmation" required>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="register">Register</button>
+                        <button type="button" class="btn btn-success" id="returnLogin">Log in</button>
                     </form>
                 </div>
             </div>

@@ -4,6 +4,10 @@ const mainSection = document.getElementById("mainSection");
 const loginSection = document.getElementById("loginSection");
 const loginAlert = document.getElementById("loginAlert");
 const login = document.getElementById("login");
+const registerSeciton = document.getElementById("registerSection");
+const registerShow = document.getElementById("registerShow");
+const registerBtn = document.getElementById("register");
+const returnLogin = document.getElementById("returnLogin");
 const logout = document.getElementById("logout"); 
 const welcome = document.getElementById("welcome");
 const blance = document.getElementById("balance");
@@ -25,51 +29,16 @@ loginAlert.hidden = true;
 depositForm.hidden = true;
 transferForm.hidden = true;
 withdrawForm.hidden = true;
+registerSeciton.hidden = true;
 
 
 //"Base de datos"
 const users = [
     {
-        name: "Carlos",
-        user: "carlosb",
-        password: "sensei123",
-        balance: 500,
-    },
-    {
-        name: "Ahiram",
-        user: "ahiram19",
-        password: "mariha91",
-        balance: 500,
-    },   
-    {
-        name: "Adrian",
-        user: "adriannc",
-        password: "coder26",
-        balance: 500,
-    },
-    {
-        name: "Daniela",
-        user: "danicastromtz",
-        password: 7812150,
-        balance: 500,
-    },
-    {
-        name: "Camila",
-        user: "camilanc",
-        password: "nieto2020",
-        balance: 500,
-    },
-    {
-        name: "Hilda Lorena",
-        user: "lorecoga",
-        password: "maiestra16",
-        balance: 0,
-    },
-    {
         name: "Admin",
         user: "admin",
-        password: "admin1",
-        balance: 500
+        password: "admin",
+        balance: 100
     },
     {
         name: "Admin no. 2",
@@ -78,6 +47,75 @@ const users = [
         balance: 500
     }
 ];
+
+//Registro de usuario 
+function register(name,user,password,passwordConfirm) {
+    let flag = false;
+    if(password === passwordConfirm) {
+        for (i = 0; i < users.length; i++) {
+            let tempUser = users[i];
+            if (user.toLowerCase() === tempUser.user.toLowerCase()) {
+                loginAlert.classList.add("alert-danger");
+                loginAlert.textContent = `User already in use, please try a different one`;
+                loginAlert.hidden = false;  
+                setTimeout(function() {
+                    loginAlert.hidden = true
+                    loginAlert.classList.remove("alert-danger")}, 3000
+                );
+                flag = true;
+                break;
+            };
+        };
+        if(flag === false){
+            users.push( 
+                {
+                name: `${name}`,
+                user: `${user}`,
+                password: `${password}`,
+                balance: 150
+                }
+            );
+            loginAlert.classList.add("alert-success");
+            loginAlert.textContent = `Welcome ${name}. Registration Succesfull!`;
+            loginAlert.hidden = false;
+            setTimeout(function() {
+                loginAlert.hidden = true
+                loginAlert.classList.remove("alert-success")}, 4000
+            );
+            loginSection.hidden = false;
+            registerSeciton.hidden = true;
+        }
+    } else {
+        loginAlert.classList.add("alert-danger");
+        loginAlert.textContent = `Passwords doesn't match, please verify your input and try again`;
+        loginAlert.hidden = false;
+        setTimeout(function() {
+            loginAlert.hidden = true
+            loginAlert.classList.remove("alert-danger")}, 4000
+        )
+    }
+};
+
+//Submit registro
+registerBtn.addEventListener("click", function() {
+    let name = document.getElementById("name").value
+    let user = document.getElementById("user_reg").value;
+    let password = document.getElementById("password_reg").value;
+    let passwordConfirm = document.getElementById("password_confirmation").value;
+    register(name,user,password,passwordConfirm)
+})
+
+//Mostra seccion de registro
+registerShow.addEventListener("click", function() {
+    loginSection.hidden = true;
+    registerSeciton.hidden = false;
+});
+
+//Regresar a Login
+returnLogin.addEventListener("click", function() {
+    loginSection.hidden = false;
+    registerSeciton.hidden = true;
+})
 
 //Validacion de login
 function loginCheck(user, password) {
