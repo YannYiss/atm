@@ -76,7 +76,7 @@ function register(name,user,password,passwordConfirm) {
                 }
             );
             loginAlert.classList.add("alert-success");
-            loginAlert.textContent = `Welcome ${name}. Registration Succesfull!`;
+            loginAlert.textContent = `Welcome ${name}. Registration Successful!`;
             loginAlert.hidden = false;
             setTimeout(function() {
                 loginAlert.hidden = true
